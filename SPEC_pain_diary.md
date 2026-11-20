@@ -63,9 +63,9 @@ Columns: **Date | Time | NRS | Bar | Measure | Note | (Delete button)**
 | 4 – 6   | orange | medium                  |
 | 7 – 10  | red    | high                    |
 
-- **Threshold:** rows with `NRS ≥ THRESHOLD` get a ⚠ symbol in the NRS cell.
-  `THRESHOLD` is one constant in `script.js`, value **4**.
-  *(Not verified: value taken from my memory of the German "Expertenstandard Schmerzmanagement" (NRS > 3 at rest). Must be checked against the standard of my ward.)*
+- **Threshold:** rows with `NRS > THRESHOLD` get a ⚠ symbol in the NRS cell.
+  `THRESHOLD` is one constant in `script.js`, value **3** (i.e. NRS 4–10 are marked).
+  Value confirmed by me (nursing practice).
 
 ### 3.2 Summary line (below the table)
 
@@ -79,6 +79,10 @@ If there are no entries, the page shows the text **"No entries yet."** instead o
 ---
 
 ## 4. User interface (scribble)
+
+![Scribble of the pain diary page](sketch_pain_diary.png)
+
+Text version:
 
 ```
 +-------------------------------------------------------------+
@@ -115,7 +119,7 @@ If there are no entries, the page shows the text **"No entries yet."** instead o
 
 **Display**
 - R8: The system shall colour each bar according to the table in 3.1.
-- R9: While `NRS ≥ THRESHOLD`, the system shall show ⚠ next to the NRS value of that row.
+- R9: While `NRS > THRESHOLD`, the system shall show ⚠ next to the NRS value of that row.
 - R10: While no entries exist, the system shall show "No entries yet." and hide table and summary.
 
 **Deleting**
@@ -161,10 +165,9 @@ If there are no entries, the page shows the text **"No entries yet."** instead o
 
 ## 9. Open questions (for discussion with buddy / spec-reviewer AI)
 
-- Q1: Is THRESHOLD = 4 correct for my ward? (see 3.1, not verified)
-- Q2: Should a reassessment reminder be shown after a "medication" entry (e.g. after 30–60 min)? → not in v1.
-- Q3: Should NRS be split into "at rest" and "during movement"? → not in v1.
-- Q4: Is "oldest first" the order nurses prefer, or "newest first"?
+- Q1: Should a reassessment reminder be shown after a "medication" entry (e.g. after 30–60 min)? → not in v1.
+- Q2: Should NRS be split into "at rest" and "during movement"? → not in v1.
+- Q3: Is "oldest first" the order nurses prefer, or "newest first"?
 
 ---
 
